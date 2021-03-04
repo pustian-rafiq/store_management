@@ -15,6 +15,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="{{ asset('admin/plugins/fontawesome-free/css/all.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('admin/dist/css/adminlte.min.css')}}">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="{{ asset('admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   @stack('css')
@@ -28,6 +31,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
+       @include('flash::message')
        @yield('main_content')
  </div>
   <!-- Main Footer -->
@@ -43,7 +47,33 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{ asset('admin/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('admin/dist/js/adminlte.min.js')}}"></script>
+<!-- DataTables -->
+<script src="{{ asset('admin/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('admin/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+<script src="{{ asset('admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+{{-- Flash message script --}}
+<script>
+$('div.alert').not('.alert-important').delay(3000).fadeOut(350);
+</script>
 
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true,
+      "autoWidth": false,
+    });
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script>
  @stack('js')
 </body>
 </html>

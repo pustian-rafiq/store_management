@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+// use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get('/home', function(){
 	return view('admin.home');
 });
+
+//Category Routes here
+Route::resource('category','CategoryController');

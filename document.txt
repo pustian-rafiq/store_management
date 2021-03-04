@@ -1,0 +1,4 @@
+Required Document for this project
+
+1) providers->RouteServiceProvide->uncomment namespace
+2) add laracast flash message from https://github.com/laracasts/flash

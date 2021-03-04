@@ -24,33 +24,33 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+            <a href="{{ route('dashboard') }}" class="nav-link active">
+              <i class="nav-icon fa fa-menu"></i>
               <p>
-                Starter Pages
+                Dashboard
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
+            {{-- <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="#" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Active Page</p>
+                  <i class="fa fa-bars nav-icon"></i>
+                  <p>Category</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Inactive Page</p>
+                  <i class="fa fa-circle nav-icon"></i>
+                  <p>Product</p>
                 </a>
               </li>
-            </ul>
+            </ul> --}}
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ route('category.index') }}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                Simple Link
+               Category
                 <span class="right badge badge-danger">New</span>
               </p>
             </a>
