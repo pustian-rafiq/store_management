@@ -51,10 +51,21 @@
               <i class="nav-icon fas fa-th"></i>
               <p>
                Category
-                <span class="right badge badge-danger">New</span>
+               {{--  <span class="right badge badge-danger">New</span> --}}
               </p>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a href="{{ route('brand.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+               Brand
+               {{--  <span class="right badge badge-danger">New</span> --}}
+              </p>
+            </a>
+          </li>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

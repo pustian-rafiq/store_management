@@ -8,12 +8,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Category Page</h1>
+            <h1 class="m-0 text-dark">Brand Page</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Category List</li>
+              <li class="breadcrumb-item active">Brand List</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -24,10 +24,10 @@
             <!-- general form elements -->
             <div class=" card-primary">
               <div class="card-header">
-                <h3 class="card-title"> Category List</h3>
+                <h3 class="card-title"> Brand List</h3>
 
               </div><br>  
-               <a href="{{ route('category.create') }}" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i>Add Category</a><br><br>
+               <a href="{{ route('brand.create') }}" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i>Add New Brand</a><br><br>
        <!-- .card -->
          <div class="card">
               <div class="card-header">
@@ -39,21 +39,21 @@
                   <thead>
                   <tr>
                     <th>Sl No</th>
-                    <th>Category Name</th>
+                    <th>Brand Name</th>
                     <th>Action</th>
                   </tr>
                   </thead>
 
                   <tbody>
-                    @foreach($categories as $key=>$category)
+                    @foreach($brands as $key=>$brand)
                   <tr>
                     <td>{{ ++$key }}</td>
-                    <td>{{ $category->category_name }}</td>
+                    <td>{{ $brand->brand_name }}</td>
                     <td>
-                      <a class="btn btn-sm btn-info" href="{{ route('category.edit',$category->id) }}"><i class="fa fa-edit"></i>Edit</a>
-                      <a class="btn btn-sm btn-danger sa-delete" href="javascript:;" data-form-id="category-delete-{{ $category->id }}"><i class="fa fa-trash"></i>Delete</a>
+                      <a class="btn btn-sm btn-info" href="{{ route('brand.edit',$brand->id) }}"><i class="fa fa-edit"></i>Edit</a>
+                      <a class="btn btn-sm btn-danger sa-delete" href="javascript:;" data-form-id="category-delete-{{ $brand->id }}"><i class="fa fa-trash"></i>Delete</a>
 
-                      <form id="category-delete-{{ $category->id }}" action="{{ route('category.destroy',$category->id) }}" method="post">
+                      <form id="category-delete-{{ $brand->id }}" action="{{ route('brand.destroy',$brand->id) }}" method="post">
                         @csrf
                         @method('DELETE')
                         
@@ -66,7 +66,7 @@
                   <tfoot>
                   <tr>
                     <th>Sl No</th>
-                    <th>Category Name</th>
+                    <th>Brand Name</th>
                     <th>Action</th>
                   </tr>
                   </tfoot>

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Admin\Category;
-class CategoryController extends Controller
+use App\Models\Admin\Brand;
+class BrandController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +13,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-         $categories = Category::orderby('id','DESC')->get();
-         return view('admin.category.index',compact('categories'));
+        $brands = Brand::orderby('id','DESC')->get();
+        return view('admin.brand.index',compact('brands'));
     }
 
     /**
@@ -24,7 +24,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.category.create');
+        return view('admin.brand.create');
     }
 
     /**
@@ -36,15 +36,13 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-        'category_name' => 'required|unique:categories|max:50|min:2',
-         
-    ]);
-        $category = new Category();
-        $category->category_name = $request->category_name;
-        $category->save();
-        flash('Category created successfully')->success();
-        return Redirect()->route('category.index');
-
+            'brand_name' => 'required|unique:brands|max:50|min:2',
+        ]);
+        $brand = new Brand();
+        $brand->brand_name = $request->brand_name;
+        $brand->save();
+        flash('Brand created successfully')->success();
+        return Redirect()->route('brand.index');
     }
 
     /**
@@ -66,8 +64,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::findOrFail($id);
-        return view('admin.category.edit', compact('category'));
+        $brand = Brand::findOrFail($id);
+        return view('admin.brand.edit', compact('brand'));
     }
 
     /**
@@ -79,17 +77,14 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //validation
-         $validated = $request->validate([
-        'category_name' => 'required|max:50|min:2|unique:categories,category_name,'. $id
-        //ekhane $id er category name bade onno category name gulor sathe compare korbe j unique hocce ki na
-         ]);
-         $category = Category::findOrFail($id);
-         $category->category_name = $request->category_name;
-         $category->save();
-
-         flash('Category updated successfully')->success();
-         return Redirect()->route('category.index');
+        $validated = $request->validate([
+            'brand_name' => 'required|max:50|min:2|unique:brands,brand_name,'.$id
+        ]);
+        $brand = Brand::findOrFail($id);
+        $brand->brand_name = $request->brand_name;
+        $brand->save();
+        flash('Brand updated successfully')->success();
+        return Redirect()->route('brand.index');
     }
 
     /**
@@ -100,10 +95,10 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category = Category::findOrFail($id);
-        $category->delete();
+        $brand = Brand::findOrFail($id);
+        $brand->delete();
 
-        flash('Category deleted successfully')->success();
-        return Redirect()->route('category.index');
+        flash('Brand deleted successfully')->success();
+        return Redirect()->route('brand.index');
     }
 }

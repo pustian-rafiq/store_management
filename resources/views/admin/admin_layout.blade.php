@@ -54,7 +54,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{ asset('admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
 <!-- Sweet Alert js-->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-{{-- Flash message script --}}
+<!-- time for Flash message script -->
 <script>
 $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
 </script>
@@ -77,7 +77,7 @@ $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
   });
 </script>
 
-<!-- Script for delete-->
+<!-- Script for delete category-->
 <script type="text/javascript">
   $('.sa-delete').on('click',function(){
     let form_id = $(this).data('form-id');
@@ -95,6 +95,7 @@ $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
         });
   })
 </script>
+
  @stack('js')
 </body>
 </html>

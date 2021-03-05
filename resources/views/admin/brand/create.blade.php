@@ -8,12 +8,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Category Page</h1>
+            <h1 class="m-0 text-dark">Brand Page</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Category/Edit</li>
+              <li class="breadcrumb-item active">Brand/Create</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -24,17 +24,16 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Edit Category</h3>
+                <h3 class="card-title">Create New Brand</h3>
               </div>  
-             <form  action="{{ route('category.update',$category->id) }}" method="post">
+             <form  action="{{ route('brand.store') }}" method="post">
              	@csrf
-              @method('PUT')
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Category Name</label>
-                    <input type="text" name="category_name" class="form-control" id="exampleInputEmail1" value="{{ $category->category_name }}" >
-                    @if($errors->has('category_name'))
-                     <span style="color: red">{{ $errors->first('category_name') }}</span>
+                    <label for="exampleInputEmail1">Brand Name</label>
+                    <input type="text" name="brand_name" class="form-control" id="exampleInputEmail1" placeholder="Enter brand name">
+                    @if($errors->has('brand_name'))
+                     <span style="color: red">{{ $errors->first('brand_name') }}</span>
                     @endif
                   </div>
                  
@@ -42,7 +41,7 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Save Category</button>
+                  <button type="submit" class="btn btn-primary">Add Brand</button>
                 </div>
 
             </form>

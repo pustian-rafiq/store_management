@@ -27,5 +27,10 @@ Route::get('/home', function(){
 	return view('admin.home');
 });
 
-//Category Routes here
-Route::resource('category','CategoryController');
+Route::middleware(['auth:sanctum'])->group(function(){
+	//Category Routes here
+	Route::resource('category','CategoryController');
+
+	//Category Routes here
+	Route::resource('brand','BrandController');
+});
