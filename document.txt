@@ -2,3 +2,5 @@ Required Document for this project
 
 1) providers->RouteServiceProvide->uncomment namespace
 2) add laracast flash message from https://github.com/laracasts/flash
+3) Add Sweet alert for deleting anything---- npm install sweetalert --save or use cdn
+4)

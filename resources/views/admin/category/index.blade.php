@@ -49,8 +49,14 @@
                     <td>{{ ++$key }}</td>
                     <td>{{ $category->category_name }}</td>
                     <td>
-                      <a href="">Edit</a>
-                      <a href="">Delete</a>
+                      <a class="btn btn-sm btn-info" href="{{ route('category.edit',$category->id) }}"><i class="fa fa-edit"></i>Edit</a>
+                      <a class="btn btn-sm btn-danger sa-delete" href="javascript:;" data-form-id="category-delete-{{ $category->id }}"><i class="fa fa-trash"></i>Delete</a>
+
+                      <form id="category-delete-{{ $category->id }}" action="{{ route('category.destroy',$category->id) }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        
+                      </form>
                     </td>
                   </tr>
                    @endforeach
