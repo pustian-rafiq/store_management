@@ -33,4 +33,6 @@ Route::middleware(['auth:sanctum'])->group(function(){
 
 	//Category Routes here
 	Route::resource('brand','BrandController');
+	//Category Routes here
+	Route::resource('size','SizeController');
 });
