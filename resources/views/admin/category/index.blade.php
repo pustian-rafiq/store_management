@@ -28,6 +28,7 @@
 
               </div><br>  
                <a href="{{ route('category.create') }}" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i>Add Category</a><br><br>
+               <hello></hello>
        <!-- .card -->
          <div class="card">
               <div class="card-header">

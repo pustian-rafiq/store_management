@@ -30,7 +30,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   @include('admin.partial.sidebar');
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper" id="app">
        @include('flash::message')
        @yield('main_content')
  </div>
@@ -40,7 +40,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- ./wrapper -->
 
 <!-- REQUIRED SCRIPTS -->
-
+<script src="{{ asset('js/app.js') }}"></script>
 <!-- jQuery -->
 <script src="{{ asset('admin/plugins/jquery/jquery.min.js')}}"></script>
 <!-- Bootstrap 4 -->
