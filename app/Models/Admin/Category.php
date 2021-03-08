@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
+    protected $appends = [
+        'text',
+    ];
+
+
+    public function getTextAttribute(){
+        return $this->category_name;
+    }
 }
