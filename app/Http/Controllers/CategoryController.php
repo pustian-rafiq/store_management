@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Admin\Category;
+use Illuminate\Http\Response;
 class CategoryController extends Controller
 {
     /**
@@ -37,7 +38,7 @@ class CategoryController extends Controller
     {
         $validated = $request->validate([
         'category_name' => 'required|unique:categories|max:50|min:2',
-         
+
     ]);
         $category = new Category();
         $category->category_name = $request->category_name;
@@ -105,5 +106,15 @@ class CategoryController extends Controller
 
         flash('Category deleted successfully')->success();
         return Redirect()->route('category.index');
+    }
+    //Handle ajac request for categories
+
+    public function getCategoriesJson(){
+        $categories = Category::all();
+
+        return response()->json([
+            'success'   => true,
+            'data'      => $categories
+        ], Response::HTTP_OK);
     }
 }
